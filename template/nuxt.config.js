@@ -12,12 +12,12 @@ module.exports = {
   },
   plugins: [
     {{#vuetify}}
-    '@/plugins/vuetify.js',
+    { src: '@/plugins/vuetify.js' },
     {{/vuetify}}
     {{#firebase}}
-    '@/plugins/firebase.js',
+    { src: '@/plugins/firebase.js' },
     {{/firebase}}
-    '@/plugins/scripts.js'
+    { src: '@/plugins/scripts.js' }
   ],
   css: [
     {{#vuetify}}

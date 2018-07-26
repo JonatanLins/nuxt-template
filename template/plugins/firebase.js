@@ -21,5 +21,6 @@ export default function ({ store }) {
   return new Promise((resolve, reject) => {
     firebase.auth().onAuthStateChanged(user => {
       return resolve(store.commit('auth/setUser', user))
-    })  })
+    })
+  })
 }{{/firebaseAuth}}
