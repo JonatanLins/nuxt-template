@@ -15,7 +15,7 @@
 export default {}
 </script>
 
-<style class="scss">
+<style lang="scss" scoped>
 .container {
   min-height: 100vh;
   display: flex;
