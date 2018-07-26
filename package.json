@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-template",
+  "version": "1.0.0",
+  "description": "Template de Nuxt.js personalizado",
+  "main": "meta.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonatanLins/nuxt-template.git"
+  },
+  "keywords": [
+    "template",
+    "vuejs",
+    "nuxt",
+    "firebase",
+    "vuetify",
+    "quilbe"
+  ],
+  "author": "Jonatan Lins <https://jonatanlins.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JonatanLins/nuxt-template/issues"
+  },
+  "homepage": "https://github.com/JonatanLins/nuxt-template#readme"
+}
