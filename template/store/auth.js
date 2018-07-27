@@ -1,4 +1,4 @@
-import { auth } from '@/plugins/firebase'
+import { auth, authPersistence, googleProvider } from '@/plugins/firebase'
 
 export const state = () => ({
   user: null,
@@ -20,7 +20,10 @@ export const mutations = {
       'auth/invalid-email': 'Email inválido',
       'auth/user-disabled': 'Usuário não encontrado',
       'auth/user-not-found': 'Usuário não encontrado',
-      'auth/wrong-password': 'Senha incorreta'
+      'auth/wrong-password': 'Senha incorreta',
+      'auth/email-already-in-use': 'O e-mail digitado já está em uso',
+      'auth/operation-not-allowed': 'Operação não permitida',
+      'auth/weak-password': 'A senha digitada é fraca demais'
     }
     state.checked = true
     state.error = messages[error] || error || 'Ocorreu um erro desconhecido'
@@ -34,17 +37,31 @@ export const mutations = {
 export const actions = {
   login ({ commit }, data) {
     commit('cleanError')
-    auth().setPersistence(auth.Auth.Persistence.SESSION)
+    auth.setPersistence(authPersistence.LOCAL)
       .then(() => {
-        auth()
-          .signInWithEmailAndPassword(data.username, data.password)
+        auth.signInWithEmailAndPassword(data.username, data.password)
           .catch(err => commit('setError', err.code))
       })
   },
 
   logout ({ commit }) {
     commit('cleanError')
-    auth().signOut()
+    auth.signOut()
+      .catch(err => commit('setError', err.code))
+  },
+
+  register ({ commit }, data) {
+    commit('cleanError')
+    auth.createUserWithEmailAndPassword(data.username, data.password)
+      .then(({ user }) => {
+        user.updateProfile({ displayName: data.displayName })
+          .catch(err => commit('setError', err.code))
+      })
+      .catch(err => commit('setError', err.code))
+  },
+
+  googleLogin ({ commit }) {
+    auth.signInWithRedirect(googleProvider)
       .catch(err => commit('setError', err.code))
   }
 }
