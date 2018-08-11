@@ -39,9 +39,10 @@ module.exports = {
       {{#firebase}}
       '@/plugins/firebase.js',
       {{/firebase}}
+      '@/plugins/icons.js'
     ],
     extractCSS: true,
-    extend (config, { isDev, isClient }) {
+    extend (config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -49,6 +50,18 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+      if (isServer) {
+        config.externals = [
+          nodeExternals({
+            // default value for `whitelist` is
+            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
+            whitelist: [
+              /es6-promise|\.(?!(?:js|json)$).{1,5}$/i,
+              /^vue-awesome/
+            ]
+          })
+        ]
       }
     }
   }
