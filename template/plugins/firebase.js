@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
-{{#firebaseDatabase}}
-import 'firebase/database'
-{{/firebaseDatabase}}
+{{#firebaseFirestore}}
+import 'firebase/firestore'
+{{/firebaseFirestore}}
 {{#firebaseAuth}}
 import 'firebase/auth'
 {{/firebaseAuth}}
@@ -11,10 +11,14 @@ if (!firebase.apps.length) {
     // firebase config data
   })
 }
-{{#firebaseDatabase}}
-export const db = firebase.database()
-{{/firebaseDatabase}}
+{{#firebaseFirestore}}
+export const firestore = firebase.firestore()
+
+const firestoreSettings = { timestampsInSnapshots: true }
+firestore.settings(firestoreSettings)
+{{/firebaseFirestore}}
 {{#firebaseAuth}}
+
 export const auth = firebase.auth()
 export const authPersistence = firebase.auth.Auth.Persistence
 export const googleProvider = new firebase.auth.GoogleAuthProvider()

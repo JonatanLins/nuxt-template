@@ -37,10 +37,10 @@ module.exports = {
       type: 'confirm',
       message: 'Do you want to use Firebase Auth?'
     },
-    firebaseDatabase: {
+    firebaseFirestore: {
       when: 'firebase',
       type: 'confirm',
-      message: 'Do you want to use Firebase Realtime Database?'
+      message: 'Do you want to use Firebase Cloud Firestore?'
     },
     vuetify: {
       type: 'confirm',
