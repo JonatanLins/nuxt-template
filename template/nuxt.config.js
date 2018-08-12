@@ -29,6 +29,9 @@ module.exports = {
   ],
   mode: 'spa',
   loading: { color: '#3B8070' },
+  modules: [
+    '@nuxtjs/pwa'
+  ],
   {{#firebaseAuth}}
   router: { middleware: 'checkAuth' },
   {{/firebaseAuth}}
