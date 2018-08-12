@@ -1,7 +1,7 @@
-[ ] verificar 'middleware/checkAuth.js'
-[ ] completar 'store/auth.js'
-[ ] adicionar Sentry para monitorar erros (em Vue.config.errorHandler)
-[ ] adicionar nuxt-pwa
-[ ] adicionar ferramentas de testes automatizados
-[ ] adicionar i18n
-[ ] modificar ícone (favicon)
+- [ ] verificar 'middleware/checkAuth.js'
+- [ ] completar 'store/auth.js'
+- [ ] adicionar Sentry para monitorar erros (em Vue.config.errorHandler)
+- [x] adicionar nuxt-pwa
+- [ ] adicionar ferramentas de testes automatizados
+- [ ] adicionar i18n
+- [ ] modificar ícone (favicon)
