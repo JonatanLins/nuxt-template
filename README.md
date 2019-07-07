@@ -1,5 +1,7 @@
 # nuxt-template
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jonatanlins/nuxt-template.svg)](https://greenkeeper.io/)
+
 Um template simples para [Nuxt.js](https://github.com/nuxt/nuxt.js).
 
 ## Pré-requisitos
